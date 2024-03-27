@@ -3,6 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [
 
+			],
+			details: [
+
 			]
 		},
 		actions: {
@@ -12,6 +15,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/people/")
 				.then(res => res.json())
 				.then(data => setStore({ characters: data.results }))
+				.catch(err => console.error(err))
+			},
+			getDetails: () => {
+				console.log("getDetails está funcionando");
+				fetch("https://www.swapi.tech/api/people/")
+				.then(res => res.json())
+				.then(data => console.log(data))
 				.catch(err => console.error(err))
 			}
 		}
