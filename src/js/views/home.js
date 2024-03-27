@@ -13,7 +13,12 @@ export const Home = () => {
 	
 	return (
         <div className="Home">
-            <CardComponent />
+            <div className="row">
+				{store.characters.map((character, index) => (
+					<CardComponent key={index} character={character} />
+				))}
+			</div>
+			
         </div>
     );
 };
