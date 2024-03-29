@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
-import { CardComponent } from "../component/cardComponent.js";
+import { CardPeople } from "../component/cardPeople.js";
 
 export const Details = () => {
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export const CardComponent = ({ character }) => {
+export const CardPeople = ({ character }) => {
   console.log(character)
 
 const [details, setDetails] = useState ({})
@@ -14,7 +14,7 @@ const [details, setDetails] = useState ({})
 	}, [])
 
 	return (
-    <div className="card col-3">
+    <div className="card col-3 m-2 p-2">
       <img src="https://loremflickr.com/640/360" className="card-img-top" alt="..."/>
       <div className="card-body">
         <h5 className="card-title">{character.name}</h5>
