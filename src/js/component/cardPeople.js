@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const CardPeople = ({ character }) => {
   console.log(character)
 
 const [details, setDetails] = useState ({})
+const {store, actions} = useContext(Context);
 
   useEffect(() => {
 		fetch("https://www.swapi.tech/api/people/"+character.uid)
@@ -12,6 +14,8 @@ const [details, setDetails] = useState ({})
     .then(data => setDetails(data.result.properties))
     .catch(err => console.error(err))
 	}, [])
+
+
 
 	return (
     <div className="card col-3 m-2 p-2">
@@ -26,6 +30,9 @@ const [details, setDetails] = useState ({})
             <a href="#" className="text-white">Learn more!</a>
           </button>
         </Link>
+        <div className="d-flex justify-content-end">
+          <button className="btn btn-primary" onClick={() => {actions.addFavorite(character.name)}}><i className="fa-solid fa-heart"></i></button>
+        </div>
       </div>
     </div>
     );
