@@ -10,6 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [
 
 			],
+			character: {
+
+			},
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -25,6 +28,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(name);
 			    setStore({favorites: name})
 			},
+			getCharacter: (id) => {
+				console.log("ESTOY FUNCIONANDO POR FIN :D");
+				fetch("https://www.swapi.tech/api/people/"+id)
+				.then(res => res.json())
+				.then(data => setStore({ character: data.result }))
+				.catch(err => console.error(err))
+			}
 		}
 	};
 };

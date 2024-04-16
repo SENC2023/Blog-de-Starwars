@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
-import { CardPeople } from "../component/cardPeople.js";
+import { CardComponent } from "../component/cardComponent.js";
 
 export const Home = () => {
 
@@ -10,12 +10,12 @@ export const Home = () => {
 	useEffect(() => {
 		actions.getCharacters()
 	}, [])
-	
+	console.log(store.characters);
 	return (
         <div className="Home">
-            <div className="People p-4">
+            <div className="Overflow p-4">
 				{store.characters.map((character, index) => (
-					<CardPeople key={index} character={character} />
+					<CardComponent key={index} character={character} />
 				))}
 			</div>
         </div>

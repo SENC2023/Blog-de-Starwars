@@ -1,4 +1,4 @@
-.People {
+.Overflow {
     display: flex;
     overflow-x: scroll;
     max-width: 95%

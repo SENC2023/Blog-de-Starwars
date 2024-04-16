@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CardPeople = ({ character }) => {
+export const CardComponent = ({ character }) => {
   console.log(character)
 
 const [details, setDetails] = useState ({})
@@ -15,8 +15,6 @@ const {store, actions} = useContext(Context);
     .catch(err => console.error(err))
 	}, [])
 
-
-
 	return (
     <div className="card col-3 m-2 p-2">
       <img src="https://loremflickr.com/640/360" className="card-img-top" alt="..."/>
@@ -25,9 +23,9 @@ const {store, actions} = useContext(Context);
         <p className="card-text">Gender: {details.gender}</p>
         <p className="card-text">Hair Color: {details.hair_color}</p>
         <p className="card-text">Eye Color: {details.eye_color}</p>
-        <Link to="/details">
+        <Link to={`/people/${character.uid}`}>
           <button className="btn btn-primary">
-            <a href="#" className="text-white">Learn more!</a>
+            Learn more!
           </button>
         </Link>
         <div className="d-flex justify-content-end">
