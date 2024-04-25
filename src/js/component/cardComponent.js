@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const CardComponent = ({ character }) => {
-  console.log(character)
+  // console.log(character)
 
 const [details, setDetails] = useState ({})
 const {store, actions} = useContext(Context);
@@ -23,13 +23,15 @@ const {store, actions} = useContext(Context);
         <p className="card-text">Gender: {details.gender}</p>
         <p className="card-text">Hair Color: {details.hair_color}</p>
         <p className="card-text">Eye Color: {details.eye_color}</p>
-        <Link to={`/people/${character.uid}`}>
-          <button className="btn btn-primary">
-            Learn more!
-          </button>
-        </Link>
-        <div className="d-flex justify-content-end">
-          <button className="btn btn-primary" onClick={() => {actions.addFavorite(character.name)}}><i className="fa-solid fa-heart"></i></button>
+        <div className="d-flex justify-content-between">
+          <Link to={`/people/${character.uid}`}>
+            <button className="btn btn-primary">
+              Learn more!
+            </button>
+          </Link>
+          <div className="">
+            <button className="btn btn-primary" onClick={() => {actions.addFavorite(character.name)}}><i className="fa-solid fa-heart"></i></button>
+          </div>
         </div>
       </div>
     </div>

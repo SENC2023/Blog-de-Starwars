@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import { CardComponent } from "../component/cardComponent.js";
+import { CardPlanets } from "../component/cardPlanets.js"
+import { CardVehicles } from "../component/cardVehicles.js";
 
 export const Home = () => {
 
@@ -9,13 +11,25 @@ export const Home = () => {
 
 	useEffect(() => {
 		actions.getCharacters()
+		actions.getPlanets()
+		actions.getVehicles()
 	}, [])
-	console.log(store.characters);
+	// console.log(store.planets);
 	return (
         <div className="Home">
             <div className="Overflow p-4">
 				{store.characters.map((character, index) => (
 					<CardComponent key={index} character={character} />
+				))}
+			</div>
+			<div className="Overflow p-4">
+				{store.planets.map((planets, index) => (
+					<CardPlanets key={index} planet={planets} />
+				))}
+			</div>
+			<div className="Overflow p-4">
+				{store.vehicles.map((vehicles, index) => (
+					<CardVehicles key={index} vehicle={vehicles} />
 				))}
 			</div>
         </div>
