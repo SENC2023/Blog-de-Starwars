@@ -8,6 +8,12 @@ export const CardComponent = ({ character }) => {
 const [details, setDetails] = useState ({})
 const {store, actions} = useContext(Context);
 
+const addToFavorites = () => {
+  if (!store.favorites.includes(character.name)) {
+    actions.addFavorite(character.name);
+  }
+};
+
   useEffect(() => {
 		fetch("https://www.swapi.tech/api/people/"+character.uid)
     .then(res => res.json())
@@ -16,7 +22,7 @@ const {store, actions} = useContext(Context);
 	}, [])
 
 	return (
-    <div className="card col-3 m-2 p-2">
+    <div className="card col-3 m-2 p-2 bg-dark text-light">
       <img src="https://loremflickr.com/640/360" className="card-img-top" alt="..."/>
       <div className="card-body">
         <h5 className="card-title">{character.name}</h5>
@@ -30,7 +36,9 @@ const {store, actions} = useContext(Context);
             </button>
           </Link>
           <div className="">
-            <button className="btn btn-primary" onClick={() => {actions.addFavorite(character.name)}}><i className="fa-solid fa-heart"></i></button>
+            <button className="btn btn-warning" onClick={addToFavorites}>
+              <i className="fa-solid fa-heart"></i> Add to Favorites
+            </button>
           </div>
         </div>
       </div>
