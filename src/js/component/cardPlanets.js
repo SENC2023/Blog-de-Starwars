@@ -25,7 +25,7 @@ const addToFavorites = () => {
     <div className="card col-3 m-2 p-2 bg-dark text-light">
       <img src="https://loremflickr.com/640/360" className="card-img-top" alt="..."/>
       <div className="card-body">
-        <h5 className="card-title">{planet.name}</h5>
+        <h5 className="card-title text-center">{planet.name}</h5>
         <p className="card-text">Population: {details.population}</p>
         <p className="card-text">Terrain: {details.terrain}</p>
         <div className="d-flex justify-content-between">
